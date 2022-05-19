@@ -1,0 +1,81 @@
+/* 
+   PopNotify.css
+   author @ZiuChen
+   release under MIT license
+*/
+
+.PopNotify {
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 20px 25px 20px 25px;
+  width: 300px;
+  max-height: 500px;
+  margin-top: 5px;
+  margin-left: -500px;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: #d1d1d1 0px 0px 8px;
+  background-color: #ffffff;
+  border: 3px solid;
+}
+
+.PopNotify .PopNotify_first-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.PopNotify .PopNotify_title {
+  font-size: 1.05em;
+  width: 250px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  /* word-break: break-all; */
+}
+
+.PopNotify .PopNotify_content {
+  width: 280px;
+  overflow: hidden;
+  color: #909399;
+  /* word-break: break-all; */
+}
+
+.PopNotify .PopNotify_closeBtn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  fill: #909399;
+}
+
+.PopNotify .PopNotify_closeBtn:hover {
+  fill: #545456;
+}
+
+.PopNotify.active {
+  margin-left: 0px;
+  transition: margin-left 0.5s;
+}
+
+.PopNotify.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.success {
+  border-color: #67c23a;
+}
+
+.PopNotify.error {
+  border-color: #f56c6c;
+}
+
+.PopNotify.info {
+  border-color: #909399;
+}
+
+.PopNotify.warning {
+  border-color: #e6a23c;
+}

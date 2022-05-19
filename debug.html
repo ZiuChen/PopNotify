@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="PopNotify.css" />
+    <title>Debug</title>
+  </head>
+  <body>
+    <script src="PopNotify.js"></script>
+    <button class="success">Success</button>
+    <button class="error">Error</button>
+    <button class="info">Info</button>
+    <button class="warning">Warning</button>
+    <button class="close">Try Notify.close()</button>
+    <script>
+      const types = ["success", "error", "info", "warning"]
+      const option = {
+        title: "PopNotify",
+        content: "As you can see, This is the Demo of PopNotify.",
+        fadeTime: 0,
+        onClick: () => {
+          console.log("click")
+        },
+        onClose: () => {
+          console.log("close")
+        },
+      }
+      types.forEach((type) => {
+        document.querySelector(`.${type}`).addEventListener("click", () => {
+          PopNotify[type](option)
+        })
+      })
+
+      document.querySelector(".close").addEventListener("click", () => {
+        let notify = PopNotify.success(option)
+        console.log(notify)
+        setTimeout(() => {
+          notify.close()
+        }, 500)
+      })
+    </script>
+  </body>
+</html>
