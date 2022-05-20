@@ -13,13 +13,14 @@
     <button class="error">Error</button>
     <button class="info">Info</button>
     <button class="warning">Warning</button>
-    <button class="close">Try Notify.close()</button>
+    <button class="notify">Try Notify.close()</button>
     <script>
       const types = ["success", "error", "info", "warning"]
       const option = {
         title: "PopNotify",
         content: "As you can see, This is the Demo of PopNotify.",
         fadeTime: 0,
+        // position: "bottom-left",
         onClick: () => {
           console.log("click")
         },
@@ -33,9 +34,8 @@
         })
       })
 
-      document.querySelector(".close").addEventListener("click", () => {
-        let notify = PopNotify.success(option)
-        console.log(notify)
+      document.querySelector(".notify").addEventListener("click", () => {
+        let notify = PopNotify.notify(option)
         setTimeout(() => {
           notify.close()
         }, 500)

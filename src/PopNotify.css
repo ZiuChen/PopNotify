@@ -5,9 +5,6 @@
 */
 
 .PopNotify {
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif;
-  font-size: 1em;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -15,12 +12,63 @@
   width: 300px;
   max-height: 500px;
   margin-top: 5px;
-  margin-left: -500px;
   border-radius: 8px;
   cursor: default;
   box-shadow: #d1d1d1 0px 0px 8px;
   background-color: #ffffff;
   border: 3px solid;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif;
+  font-size: 1em;
+}
+
+.PopNotify.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.top-left {
+  top: 25px;
+  left: 15px;
+  margin-left: -500px;
+}
+
+.PopNotify.top-left.active {
+  margin-left: 0px;
+  transition: margin-left 0.5s;
+}
+
+.PopNotify.top-right {
+  top: 25px;
+  right: 15px;
+  margin-right: -500px;
+}
+
+.PopNotify.top-right.active {
+  margin-right: 0px;
+  transition: margin-right 0.5s;
+}
+
+.PopNotify.bottom-left {
+  bottom: 25px;
+  left: 15px;
+  margin-left: -500px;
+}
+
+.PopNotify.bottom-left.active {
+  margin-left: 0px;
+  transition: margin-left 0.5s;
+}
+
+.PopNotify.bottom-right {
+  bottom: 25px;
+  right: 15px;
+  margin-right: -500px;
+}
+
+.PopNotify.bottom-right.active {
+  margin-right: 0px;
+  transition: margin-right 0.5s;
 }
 
 .PopNotify .PopNotify_first-line {
@@ -52,16 +100,6 @@
 
 .PopNotify .PopNotify_closeBtn:hover {
   fill: #545456;
-}
-
-.PopNotify.active {
-  margin-left: 0px;
-  transition: margin-left 0.5s;
-}
-
-.PopNotify.fade {
-  opacity: 0;
-  transition: opacity 0.5s;
 }
 
 .PopNotify.success {
