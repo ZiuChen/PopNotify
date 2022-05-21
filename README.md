@@ -2,7 +2,11 @@
 
 仿 `Element Plus` 的通知卡片。
 
+![image](image.png)
+
 ## 📸 展示Demo
+
+[Click to see the Demo](./demo/Demo.html)
 
 ## 📌 可选属性
 
