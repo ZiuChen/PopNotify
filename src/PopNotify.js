@@ -50,9 +50,6 @@ class Notify {
       .then(() => {
         return this.fadeTime !== 0 && !this._closed && this.close(this)
       })
-      .then(() => {
-        return console.log(PopNotify.queue[this.position]) // FIXME: Debugging
-      })
   }
   create() {
     return new Promise((res, rej) => {
@@ -60,7 +57,7 @@ class Notify {
       let title = document.createElement("h2")
       let closeBtn = document.createElement("div")
       let firstLine = document.createElement("div")
-      let content = document.createElement("p")
+      let content = document.createElement("div")
       if (this.dangerouslyUseHTMLString) {
         title.innerHTML = this.title
         content.innerHTML = this.content
@@ -104,10 +101,8 @@ class Notify {
           GAP +
           document.querySelector(lastNotify._selector).offsetHeight
       }
-      console.log("this._offset " + this._offset)
-      document.querySelector(this._selector).style[
-        this.position.split("-")[0]
-      ] = this._offset + "px"
+      document.querySelector(this._selector).style[this.position.split("-")[0]] =
+        this._offset + "px"
       return res()
     })
   }
@@ -124,17 +119,13 @@ class Notify {
     this._closed = true
     return notify
       .anime("fade")
-      .then((res) => {
-        this.onClose()
-        return res
-      })
-      .then(() => sleep(500))
-      .then(() => PopNotify.update(notify))
+      .then(() => sleep(500)) // wait for fade anime
+      .then(() => this.onClose())
+      .then(() => PopNotify.updateOffset(notify))
       .then((res) => {
         document.querySelector(this._selector).remove()
         let index = PopNotify.queue[this.position].indexOf(this)
         PopNotify.queue[this.position].splice(index, 1)
-        console.log(PopNotify.queue[this.position])
         delete this
         return res
       })
@@ -167,31 +158,20 @@ let PopNotify = {
     option.type = "warning"
     return new Notify(option)
   },
-  update: function (n) {
+  updateOffset: function (n) {
     // The `_offset` of each notify is assigned to the `_offset` of the previous notify
     // trigger from `n`, anime from `n` to the end
     return new Promise(async (res, rej) => {
-      for (let pos in PopNotify.queue) {
-        let queue = PopNotify.queue[pos]
-        for (let i = queue.length - 1; i > 0; i--) {
-          let notify = queue[i]
-          console.log(i)
-          if (notify._id === n._id) return res()
-          // only anime notifies after `n`
-          queue[i]._offset = queue[i - 1]._offset
-          document.querySelector(notify._selector).style[pos.split("-")[0]] =
-            notify._offset + "px"
-        }
-        for (let notify of queue) {
-          // add anime for all notify at one time
-          notify
-            .anime("move")
-            .then(() => sleep(200))
-            .then(() =>
-              document.querySelector(notify._selector).classList.remove("move")
-            )
-        }
+      let pos = n.position
+      let queue = PopNotify.queue[pos]
+      for (let i = queue.length - 1; i > 0; i--) {
+        let notify = queue[i]
+        if (notify._id === n._id) return res()
+        // only anime notifies after `n`
+        queue[i]._offset = queue[i - 1]._offset
+        document.querySelector(notify._selector).style[pos.split("-")[0]] = notify._offset + "px"
       }
+
       return res()
     })
   },

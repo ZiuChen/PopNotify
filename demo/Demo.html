@@ -32,9 +32,6 @@
         document.querySelector(`.${type}`).addEventListener("click", () => {
           PopNotify[type](option)
         })
-        setTimeout(() => {
-          document.querySelector(`.${type}`).click()
-        }, 500)
       })
       document.querySelector(".notify").addEventListener("click", () => {
         let notify = PopNotify.notify(option)
