@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/PopNotify.css" />
+    <title>PopNotify Demo</title>
+    <style>
+      p {
+        color: #909399;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./src/PopNotify.js"></script>
+    <div align="center">
+      <div>
+        <h3>Basic Usage</h3>
+        <p>Set `fadeTime` to `0`, the notify won't close automatically.</p>
+        <button class="notify">Notify</button>
+        <button class="p-notify">Permanently Notify</button>
+      </div>
+      <div>
+        <h3>Different Position</h3>
+        <button class="top-left">Top Left</button>
+        <button class="top-right">Top Right</button>
+        <button class="bottom-left">Bottom Left</button>
+        <button class="bottom-right">Bottom Right</button>
+      </div>
+      <div>
+        <h3>Different Type</h3>
+        <button class="success">Success</button>
+        <button class="error">Error</button>
+        <button class="info">Info</button>
+        <button class="warning">Warning</button>
+      </div>
+      <div>
+        <h3>With Default Offset</h3>
+        <button class="offset">Offset</button>
+      </div>
+      <div>
+        <h3>Pass HTML fragment</h3>
+        <button class="html">HTML</button>
+      </div>
+      <div>
+        <h3>Hide Close Button</h3>
+        <button class="close-btn">Without Close Button</button>
+      </div>
+    </div>
+    <script>
+      const POS = ["top-left", "top-right", "bottom-left", "bottom-right"]
+      const TYPES = ["success", "error", "info", "warning"]
+      document.querySelector(`.notify`).addEventListener("click", () => {
+        PopNotify.notify({
+          title: "PopNotify",
+          content: "As you can see, This is the Demo of PopNotify.",
+        })
+      })
+      document.querySelector(`.p-notify`).addEventListener("click", () => {
+        PopNotify.notify({
+          title: "PopNotify",
+          content: "As you can see, This is the Demo of PopNotify.",
+          fadeTime: 0,
+        })
+      })
+      POS.forEach((position) => {
+        document.querySelector(`.${position}`).addEventListener("click", () => {
+          PopNotify.notify({
+            title: "PopNotify",
+            content: "As you can see, This is the Demo of PopNotify.",
+            position: position,
+          })
+        })
+      })
+      TYPES.forEach((type) => {
+        document.querySelector(`.${type}`).addEventListener("click", () => {
+          PopNotify[type]({
+            title: "PopNotify",
+            content: "As you can see, This is the Demo of PopNotify.",
+          })
+        })
+      })
+      document.querySelector(`.offset`).addEventListener("click", () => {
+        PopNotify.notify({
+          title: "PopNotify",
+          content: "As you can see, This is the Demo of PopNotify.",
+          offset: 200,
+        })
+      })
+      document.querySelector(`.html`).addEventListener("click", () => {
+        PopNotify.notify({
+          title: "PopNotify",
+          content: /* html */ `<a href="javascript:;">This is link in content.</a>`,
+          dangerouslyUseHTMLString: true,
+        })
+      })
+      document.querySelector(`.close-btn`).addEventListener("click", () => {
+        PopNotify.notify({
+          title: "PopNotify",
+          content: "As you can see, This is the Demo of PopNotify.",
+          showClose: false,
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -24,16 +24,17 @@ class Notify {
     this.content = content
     this.type = type || "info"
     this.fadeTime = fadeTime === undefined ? 4500 : fadeTime
-    this.position = position || "top-left"
+    this.position = position || "top-right"
     this.customClass = customClass || undefined
     this.onClick =
-      onClick ||
-      function () {
-        this.close(this)
-      }
+      onClick == undefined
+        ? () => {
+            this.close(this)
+          }
+        : onClick
     this.onClose = onClose || function () {}
     this.offset = offset || 0
-    this.showClose = showClose || true
+    this.showClose = showClose == undefined ? true : false
     this.dangerouslyUseHTMLString = dangerouslyUseHTMLString || false
     this._className = `PopNotify ${this.type} ${this.position}`
     this._id = "nid" + new Date().getTime()
@@ -42,19 +43,15 @@ class Notify {
     this._offset = 25
     this.create()
       .then(() => this.initOffset())
-      .then(() => {
-        return PopNotify.queue[this.position].push(this)
-      })
+      .then(() => PopNotify.queue[this.position].push(this))
       .then(() => this.anime("active"))
       .then(() => sleep(this.fadeTime))
-      .then(() => {
-        return this.fadeTime !== 0 && !this._closed && this.close(this)
-      })
+      .then(() => this.fadeTime !== 0 && !this._closed && this.close(this))
   }
   create() {
-    return new Promise((res, rej) => {
+    return new Promise((res) => {
       let notify = document.createElement("div")
-      let title = document.createElement("h2")
+      let title = document.createElement("div")
       let closeBtn = document.createElement("div")
       let firstLine = document.createElement("div")
       let content = document.createElement("div")
@@ -87,16 +84,15 @@ class Notify {
     })
   }
   initOffset() {
-    return new Promise((res, rej) => {
+    return new Promise((res) => {
       const GAP = 16
       let queue = PopNotify.queue[this.position]
       let length = queue.length
       let lastNotify = queue[length - 1]
       if (lastNotify === undefined) {
-        this._offset = 25
+        this._offset = 25 + this.offset // first notify in queue
       } else {
         this._offset =
-          this.offset +
           queue[length - 1]._offset +
           GAP +
           document.querySelector(lastNotify._selector).offsetHeight
@@ -121,7 +117,7 @@ class Notify {
       .anime("fade")
       .then(() => sleep(500)) // wait for fade anime
       .then(() => this.onClose())
-      .then(() => PopNotify.updateOffset(notify))
+      .then(() => PopNotify._updateOffset(notify))
       .then((res) => {
         document.querySelector(this._selector).remove()
         let index = PopNotify.queue[this.position].indexOf(this)
@@ -158,27 +154,25 @@ let PopNotify = {
     option.type = "warning"
     return new Notify(option)
   },
-  updateOffset: function (n) {
+  _updateOffset: function (n) {
     // The `_offset` of each notify is assigned to the `_offset` of the previous notify
     // trigger from `n`, anime from `n` to the end
-    return new Promise(async (res, rej) => {
+    return new Promise((res) => {
       let pos = n.position
       let queue = PopNotify.queue[pos]
       for (let i = queue.length - 1; i > 0; i--) {
         let notify = queue[i]
-        if (notify._id === n._id) return res()
-        // only anime notifies after `n`
+        if (notify._id === n._id) return res() // only anime notifies after `n`
         queue[i]._offset = queue[i - 1]._offset
         document.querySelector(notify._selector).style[pos.split("-")[0]] = notify._offset + "px"
       }
-
       return res()
     })
   },
 }
 
 async function sleep(timeout) {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(() => {
       return res()
     }, timeout)
