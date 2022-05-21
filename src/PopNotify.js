@@ -57,10 +57,10 @@ class Notify {
   create() {
     return new Promise((res, rej) => {
       let notify = document.createElement("div")
-      let title = document.createElement("div")
+      let title = document.createElement("h2")
       let closeBtn = document.createElement("div")
       let firstLine = document.createElement("div")
-      let content = document.createElement("div")
+      let content = document.createElement("p")
       if (this.dangerouslyUseHTMLString) {
         title.innerHTML = this.title
         content.innerHTML = this.content
@@ -204,3 +204,5 @@ async function sleep(timeout) {
     }, timeout)
   })
 }
+
+window.PopNotify = PopNotify
