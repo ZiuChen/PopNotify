@@ -1,5 +1,6 @@
 /* 
    PopNotify.js
+   v0.0.1
    author @ZiuChen
    release under MIT license
 */
