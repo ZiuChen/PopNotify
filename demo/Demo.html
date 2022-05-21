@@ -20,20 +20,22 @@
         title: "PopNotify",
         content: "As you can see, This is the Demo of PopNotify.",
         fadeTime: 0,
-        // position: "bottom-left",
+        position: "bottom-left",
         onClick: () => {
-          console.log("click")
+          console.log("You clicked the card.")
         },
         onClose: () => {
-          console.log("close")
+          console.log("Card closed")
         },
       }
       types.forEach((type) => {
         document.querySelector(`.${type}`).addEventListener("click", () => {
           PopNotify[type](option)
         })
+        setTimeout(() => {
+          document.querySelector(`.${type}`).click()
+        }, 500)
       })
-
       document.querySelector(".notify").addEventListener("click", () => {
         let notify = PopNotify.notify(option)
         setTimeout(() => {

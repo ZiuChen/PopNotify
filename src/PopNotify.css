@@ -18,17 +18,12 @@
   background-color: #ffffff;
   border: 3px solid;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif;
+    Microsoft YaHei, Arial, sans-serif;
   font-size: 1em;
 }
 
-.PopNotify.fade {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
 .PopNotify.top-left {
-  top: 25px;
+  /* top: 25px; */
   left: 15px;
   margin-left: -500px;
 }
@@ -38,8 +33,17 @@
   transition: margin-left 0.5s;
 }
 
+.PopNotify.top-left.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.top-left.move {
+  transition: top 0.2s;
+}
+
 .PopNotify.top-right {
-  top: 25px;
+  /* top: 25px; */
   right: 15px;
   margin-right: -500px;
 }
@@ -49,8 +53,17 @@
   transition: margin-right 0.5s;
 }
 
+.PopNotify.top-right.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.top-right.move {
+  transition: top 0.2s;
+}
+
 .PopNotify.bottom-left {
-  bottom: 25px;
+  /* bottom: 25px; */
   left: 15px;
   margin-left: -500px;
 }
@@ -60,8 +73,17 @@
   transition: margin-left 0.5s;
 }
 
+.PopNotify.bottom-left.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.bottom-left.move {
+  transition: bottom 0.2s;
+}
+
 .PopNotify.bottom-right {
-  bottom: 25px;
+  /* bottom: 25px; */
   right: 15px;
   margin-right: -500px;
 }
@@ -69,6 +91,15 @@
 .PopNotify.bottom-right.active {
   margin-right: 0px;
   transition: margin-right 0.5s;
+}
+
+.PopNotify.bottom-right.fade {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.PopNotify.bottom-right.move {
+  transition: bottom 0.2s;
 }
 
 .PopNotify .PopNotify_first-line {
