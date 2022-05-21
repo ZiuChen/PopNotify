@@ -4,9 +4,9 @@
 
 ![image](image.png)
 
-## 📸 展示Demo
+## 📸 演示Demo
 
-[Click to see the Demo](./demo/Demo.html)
+[Demo](https://ziuchen.github.io/PopNotify/demo/Demo.html)
 
 ## 📌 可选属性
 
