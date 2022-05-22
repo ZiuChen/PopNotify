@@ -12,18 +12,18 @@
 
 ```html
 <!-- 引入 css -->
-<link href="> https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.css> " rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.css" rel="stylesheet">
 
 <!-- 引入 js -->
 <script src="https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.js"></script>
-```
 
-```js
-const option = {
-  title: "PopNotify",
-  content: "As you can see, This is the Demo of PopNotify."
-}
-new PopNotify.notify(option)
+<script>
+  const option = {
+    title: "PopNotify",
+    content: "As you can see, This is the Demo of PopNotify."
+  }
+  new PopNotify.notify(option)
+<script>
 ```
 
 ## 📌 可选属性
