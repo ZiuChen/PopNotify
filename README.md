@@ -1,12 +1,30 @@
 # PopNotify
 
-仿 `Element Plus` 的通知卡片。
+仿 `Element UI` 的通知卡片。
 
 ![image](image.png)
 
-## 📸 演示Demo
+## 🚀 开始使用
 
-[Demo](https://ziuchen.github.io/PopNotify/demo/Demo.html)
+**从CDN引入**
+
+> 查看[演示 Demo](https://ziuchen.github.io/PopNotify/demo/Demo.html)
+
+```html
+<!-- 引入 css -->
+<link href="> https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.css> " rel="stylesheet">
+
+<!-- 引入 js -->
+<script src="https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.js"></script>
+```
+
+```js
+const option = {
+  title: "PopNotify",
+  content: "As you can see, This is the Demo of PopNotify."
+}
+new PopNotify.notify(option)
+```
 
 ## 📌 可选属性
 
