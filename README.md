@@ -16,15 +16,41 @@
 
 <!-- 引入 js -->
 <script src="https://cdn.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.js"></script>
+```
 
-<script>
+```js
+  PopNotify.notify({
+    title: "PopNotify",
+    content: "As you can see, This is the Demo of PopNotify."
+  })
+```
+
+可以通过 `new` 获得实例，并调用其 `close()` 方法：
+
+```js
+  let notify = new PopNotify.notify({
+    title: "PopNotify",
+    content: "As you can see, This is the Demo of PopNotify."
+  })
+  setTimeout(() => {
+    notify.close()
+  }, 1000)
+```
+
+预设了多种弹框样式：
+
+```js
   const option = {
     title: "PopNotify",
     content: "As you can see, This is the Demo of PopNotify."
   }
-  new PopNotify.notify(option)
-<script>
+  PopNotify.success(option)
+  PopNotify.error(option)
+  PopNotify.info(option)
+  PopNotify.warning(option)
 ```
+
+更多可配置项，见下文：
 
 ## 📌 可选属性
 
