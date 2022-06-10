@@ -40,7 +40,7 @@ module.exports = {
       banner: () => banner
     }),
     new HtmlWebpackPlugin({
-      template: './TEMPLATE.html'
+      template: './build/TEMPLATE.html'
     })
   ]
 }
