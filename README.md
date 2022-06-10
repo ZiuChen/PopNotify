@@ -13,7 +13,7 @@
 ```html
 
 <!-- 引入 js -->
-<script src="https://fastly.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/ZiuChen/PopNotify/publish/PopNotify.min.js"></script>
 ```
 
 ```js
@@ -66,3 +66,22 @@
 | onClick                  | 点击 Notification 时的回调函数              | function | —                                           | ()=>{this.close()} |
 | offset                   | 相对屏幕顶部的偏移量                        | number   | —                                           | 0                  |
 
+## 🚚 参与开发
+
+安装依赖：
+
+```sh
+  npm i
+```
+
+启动本地调试服务器：
+
+```sh
+  npm run serve
+```
+
+构建新版本：
+
+```sh
+  npm run build
+```
