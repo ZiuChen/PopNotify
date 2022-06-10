@@ -1,5 +1,8 @@
+const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const banner = require('./build/banner.ts')
 
 module.exports = {
   mode: 'production',
@@ -8,6 +11,14 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: 'PopNotify.min.js'
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false
+      })
+    ]
   },
   resolve: {
     extensions: ['.ts', '...']
@@ -25,8 +36,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.BannerPlugin({
+      banner: () => banner
+    }),
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './TEMPLATE.html'
     })
   ]
 }
