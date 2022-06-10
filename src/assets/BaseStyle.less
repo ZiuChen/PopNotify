@@ -1,0 +1,108 @@
+@success:#67c23a;
+@error:#f56c6c;
+@info:#909399;
+@warning:#e6a23c;
+
+.PopNotify {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  padding: 20px 25px 20px 25px;
+  width: 300px;
+  min-height: 75px;
+  max-height: 500px;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: #d1d1d1 0px 0px 8px;
+  background-color: #ffffff;
+  border: 3px solid;
+  font-size: 1em;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial,
+    sans-serif;
+  z-index: 999999999;
+  .PopNotify_first-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .PopNotify_title {
+    width: 250px;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    font-weight: bold;
+  }
+  .PopNotify_content {
+    width: 280px;
+    overflow: hidden;
+    color: #909399;
+  }
+  .PopNotify_closeBtn {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    fill: #909399;
+    &:hover {
+      fill: #545456;
+    }
+  }
+  &.top-left {
+    left: 15px;
+    margin-left: -500px;
+    &.active {
+      margin-left: 0px;
+      transition: margin-left 0.5s, top 0.2s;
+    }
+    &.fade {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+  &.top-right {
+    right: 15px;
+    margin-right: -500px;
+    &.active {
+      margin-right: 0px;
+      transition: margin-right 0.5s, top 0.2s;
+    }
+    &.fade {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+  &.bottom-left {
+    left: 15px;
+    margin-left: -500px;
+    &.active {
+      margin-left: 0px;
+      transition: margin-left 0.5s, bottom 0.2s;
+    }
+    &.fade {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+  &.bottom-right {
+    right: 15px;
+    margin-right: -500px;
+    &.active {
+      margin-right: 0px;
+      transition: margin-right 0.5s, bottom 0.2s;
+    }
+    &.fade {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  }
+  &.success {
+    border-color: @success;
+  }
+  &.error {
+    border-color: @error;
+  }
+  &.info {
+    border-color: @info;
+  }
+  &.warning {
+    border-color: @warning;
+  }
+}

@@ -1,4 +1,4 @@
-const BaseStyle = require('./assets/BaseStyle.css')
+const BaseStyle = require('./assets/BaseStyle.less')
 import PopNotify from './Defination/PopNotify'
 
 window.PopNotify = PopNotify
