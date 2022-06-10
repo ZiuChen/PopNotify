@@ -11,8 +11,6 @@
 > 查看[演示 Demo](https://ziuchen.github.io/PopNotify/demo/Demo.html)
 
 ```html
-<!-- 引入 css -->
-<link href="https://fastly.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.css" rel="stylesheet">
 
 <!-- 引入 js -->
 <script src="https://fastly.jsdelivr.net/gh/ZiuChen/PopNotify@main/dist/PopNotify.min.js"></script>

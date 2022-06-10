@@ -1,0 +1,32 @@
+{
+  "name": "pop-notify",
+  "version": "0.1.0",
+  "description": "支持多种样式的非阻塞式通知卡片",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZiuChen/PopNotify.git"
+  },
+  "author": "ZiuChen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZiuChen/PopNotify/issues"
+  },
+  "homepage": "https://github.com/ZiuChen/PopNotify#readme",
+  "dependencies": {
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "devDependencies": {
+    "@webpack-cli/generators": "^2.4.2",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.0"
+  }
+}
