@@ -30,8 +30,8 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        test: /\.less$/i,
+        use: ['style-loader', 'css-loader', 'less-loader']
       }
     ]
   },
@@ -40,7 +40,7 @@ module.exports = {
       banner: () => banner
     }),
     new HtmlWebpackPlugin({
-      template: './TEMPLATE.html'
+      template: './build/TEMPLATE.html'
     })
   ]
 }
