@@ -2,7 +2,7 @@
 
 仿 `Element UI` 的通知卡片。
 
-![image](image.png)
+![image](./docs/image.png)
 
 ## 🚀 开始使用
 
