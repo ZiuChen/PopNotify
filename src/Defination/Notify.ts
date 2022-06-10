@@ -3,7 +3,7 @@ import CloseBtnSvg from '../assets/CloseBtnSvg'
 import PopNotify from './PopNotify'
 
 class Notify {
-  title
+  title: string
   content: string
   type: 'success' | 'error' | 'info' | 'warning'
   fadeTime: number
