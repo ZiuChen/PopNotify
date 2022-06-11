@@ -66,7 +66,7 @@
 | onClick                  | 点击 Notification 时的回调函数              | function | —                                           | ()=>{this.close()} |
 | offset                   | 相对屏幕顶部的偏移量                        | number   | —                                           | 0                  |
 
-## 🚚 参与开发
+## 🚚 开发相关
 
 **提交 Pull Request 前，请确认合并分支为开发分支 `dev`**
 
