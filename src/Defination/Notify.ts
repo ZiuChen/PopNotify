@@ -117,7 +117,7 @@ class Notify {
     })
   }
   async anime(status: string) {
-    let el: any = document.querySelector(this._selector)
+    let el = document.querySelector(this._selector) as HTMLDivElement
     return await sleep(0).then((res) => {
       el.className += ' ' + status
       return res
