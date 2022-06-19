@@ -1,6 +1,6 @@
 {
   "name": "pop-notify",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "支持多种样式的非阻塞式通知卡片",
   "main": "index.js",
   "scripts": {
