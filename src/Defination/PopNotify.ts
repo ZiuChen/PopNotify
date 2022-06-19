@@ -9,6 +9,7 @@ const PopNotify = {
     'bottom-right': [] as any[]
   },
   notify: function (option: INotifyOption) {
+    option.type = 'success'
     return new Notify(option)
   },
   success: function (option: INotifyOption) {
